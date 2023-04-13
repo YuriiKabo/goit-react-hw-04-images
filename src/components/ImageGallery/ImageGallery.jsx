@@ -29,7 +29,7 @@ const ImageGallery = ({ searchText }) => {
           if (response.length !== 0) {
             setIsLoading(false);
             setIsLoadMore(true);
-            // setGallery([...gallery, ...response]);
+            setGallery(prevGallery => [...prevGallery, ...response]);
           } else if (response.length === 0) {
             Report.failure('No more images to load', 'Okay');
             setIsLoadMore(false);
