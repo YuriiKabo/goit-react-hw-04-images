@@ -1,16 +1,17 @@
+import { useState } from 'react';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { Searchbar } from './Searchbar/Searchbar';
+
 export const App = () => {
+  const [searchWorld, setSearchWorld] = useState('');
+
+  const searchbarSubmit = world => {
+    setSearchWorld(world);
+  };
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Searchbar onSubmitForm={searchbarSubmit} />
+      <ImageGallery searchText={searchWorld}></ImageGallery>
+    </>
   );
 };
